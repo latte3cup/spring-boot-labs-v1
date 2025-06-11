@@ -1,6 +1,8 @@
 package com.example.di_with_beans.cafe;
 
-//@Component
+import org.springframework.stereotype.Component;
+
+@Component
 public class PremiumCoffeeMachine implements CoffeeMachine{
     @Override
     public String brew() {
