@@ -13,7 +13,7 @@ public class ProfileController {
     @Autowired
     private Environment environment;
 
-    @GetMapping("/prod")
+    @GetMapping("/profile")
     public ArrayList<String> printEnv() {
         ArrayList<String> list = new ArrayList<>();
         list.add(environment.getProperty("app.name"));

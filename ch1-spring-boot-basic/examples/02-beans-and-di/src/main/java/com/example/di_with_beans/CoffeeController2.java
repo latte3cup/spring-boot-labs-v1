@@ -2,7 +2,6 @@ package com.example.di_with_beans;
 
 import com.example.di_with_beans.cafe.Barista;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 

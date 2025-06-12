@@ -10,5 +10,5 @@ spring:
     active: dev  # 기본 활성화 프로파일
 
 server:
-  port: 8082
+  port: 8081
 
