@@ -5,8 +5,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Setter
-@AllArgsConstructor
 @Getter
+@AllArgsConstructor
 public class TodoResponseDto {
     private Long id;
     private String title;
