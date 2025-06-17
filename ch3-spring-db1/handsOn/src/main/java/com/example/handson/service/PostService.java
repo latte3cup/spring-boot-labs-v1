@@ -4,6 +4,7 @@ import com.example.handson.domain.Post;
 import com.example.handson.dto.*;
 import com.example.handson.mapper.PostMapper;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -64,4 +65,7 @@ public class PostService {
         return PostPageResponse.from(posts, search, count);
     }
 
+    public ResponseEntity<List<PostResponse>> searchPosts(PostSearchRequest search) {
+        return null;
+    }
 }

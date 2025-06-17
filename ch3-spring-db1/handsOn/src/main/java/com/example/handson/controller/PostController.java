@@ -7,6 +7,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.example.handson.dto.PostUpdateRequest;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/posts")
@@ -23,6 +25,14 @@ public class PostController {
 //    public ResponseEntity<List<PostResponse>> getAll() {
 //        return ResponseEntity.ok(service.getAllPosts());
 //    }
+
+    @GetMapping
+    public ResponseEntity<List<PostResponse>> searchPosts(@RequestParam PostSearchRequest search) {
+        return service.searchPosts(search);
+
+    }
+
+
 
     @GetMapping("/{id}")
     public ResponseEntity<PostResponse> getById(@PathVariable Long id) {
