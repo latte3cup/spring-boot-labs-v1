@@ -3,6 +3,8 @@ package com.captainyun7.ch4examples.v1.service;
 import com.captainyun7.ch4examples.v1.domain.Post;
 import com.captainyun7.ch4examples.v1.dto.*;
 import com.captainyun7.ch4examples.v1.repository.PostRepository;
+import com.captainyun7.ch4examples.v2.dto.PostPageResponse;
+import com.captainyun7.ch4examples.v2.dto.PostSearchRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -53,4 +55,7 @@ public class PostService {
         repository.deleteById(id);
     }
 
+    public PostPageResponse search(PostSearchRequest request) {
+        return null;
+    }
 }

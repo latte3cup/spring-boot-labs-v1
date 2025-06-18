@@ -1,8 +1,13 @@
 package com.captainyun7.ch4examples.v1.service;
 
-import com.captainyun7.ch4examples.v1.domain.Post;
-import com.captainyun7.ch4examples.v1.dto.*;
-import com.captainyun7.ch4examples.v1.repository.PostRepository;
+
+import com.captainyun7.ch4examples.v1.dto.PostResponse;
+import com.captainyun7.ch4examples.v2.domain.Post;
+import com.captainyun7.ch4examples.v2.dto.PostCreateRequest;
+import com.captainyun7.ch4examples.v2.dto.PostPageResponse;
+import com.captainyun7.ch4examples.v2.dto.PostSearchRequest;
+import com.captainyun7.ch4examples.v2.dto.PostUpdateRequest;
+import com.captainyun7.ch4examples.v2.repository.PostRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -36,7 +41,7 @@ class PostServiceTest {
     @DisplayName("게시글 생성 시 저장 후 응답값이 정상적으로 반환된다")
     void 게시글_생성_성공() {
         // given
-        PostCreateRequest request = new PostCreateRequest("제목", "내용");
+        com.captainyun7.ch4examples.v1.dto.PostCreateRequest request = new com.captainyun7.ch4examples.v1.dto.PostCreateRequest("제목", "내용");
         Post savedPost = new Post(1L, "제목", "내용");
 
         given(postRepository.save(any(Post.class)))
@@ -75,7 +80,7 @@ class PostServiceTest {
         // Given
         Long id = 1L;
         Post existingPost = new Post(id, "기존 제목", "기존 내용");
-        PostUpdateRequest request = new PostUpdateRequest("수정된 제목", "수정된 내용");
+        com.captainyun7.ch4examples.v1.dto.PostUpdateRequest request = new com.captainyun7.ch4examples.v1.dto.PostUpdateRequest("수정된 제목", "수정된 내용");
 
         // repository.findById() 호출 시 기존 post 반환
         given(postRepository.findById(id)).willReturn(Optional.of(existingPost));
