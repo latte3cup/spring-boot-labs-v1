@@ -25,5 +25,6 @@ public interface PostRepository extends JpaRepository<Post, Long> {
     Page<Post> searchByAuthorAndTitle(@Param("author") String author, @Param("title") String title, Pageable pageable);
 
     @Query("SELECT p FROM Post p WHERE p.createdAt >= :createdAt")
+    //@Query(value = "SELECT * FROM posts p WHERE p.created_at >= :createdAt ", nativeQuery = true)
     Page<Post> searchByCreatedAfter(@Param("createdAt") LocalDateTime createdAt, Pageable pageable);
 }

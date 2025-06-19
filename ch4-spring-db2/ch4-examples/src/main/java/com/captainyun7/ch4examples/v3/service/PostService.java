@@ -41,16 +41,17 @@ public class PostService {
 
         Page<Post> posts = null;
         // 조건 조합 분기
-        if (request.getKeyword() != null && request.getAuthor() != null) {
-            posts = repository.findByAuthorAndTitleContaining(request.getAuthor(), request.getKeyword(), pageable);
-            // posts = repository.searchByAuthorAndTitle(request.getAuthor(), request.getKeyword(), pageable);
+        if (request.getKeyword() != null && !request.getKeyword().isEmpty() && request.getAuthor() != null) {
+            //posts = repository.findByAuthorAndTitleContaining(request.getAuthor(), request.getKeyword(), pageable);
+            posts = repository.searchByAuthorAndTitle(request.getAuthor(), request.getKeyword(), pageable);
         } else if (request.getKeyword() != null) {
             posts = repository.findByTitleContaining(request.getKeyword(), pageable);
         } else if (request.getAuthor() != null) {
             posts = repository.findByAuthor(request.getAuthor(), pageable);
+
         } else if (request.getCreatedAt() != null) {
-            posts = repository.findByCreatedAtAfter(request.getCreatedAt(), pageable);
-            // posts = repository.searchByCreatedAfter(request.getCreatedAt(), pageable);
+            //posts = repository.findByCreatedAtAfter(request.getCreatedAt(), pageable);
+             posts = repository.searchByCreatedAfter(request.getCreatedAt(), pageable);
         } else {
             posts = repository.findAll(pageable); // 조건 없으면 전체 조회
         }
@@ -79,6 +80,7 @@ public class PostService {
     public void deletePost(Long id) {
         repository.deleteById(id);
     }
+
 
 
 }

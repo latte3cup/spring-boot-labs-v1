@@ -1,5 +1,8 @@
 package com.example.ch4labs;
 
+import com.example.ch4labs.dto.Review;
+import com.example.ch4labs.dto.ReviewPageResponse;
+import com.example.ch4labs.dto.ReviewSearchRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -35,5 +38,8 @@ public class ReviewService {
 
     public void delete(Long id) {
         repository.deleteById(id);
+    }
+
+    public ReviewPageResponse search(ReviewSearchRequest search) {
     }
 }
