@@ -1,12 +1,8 @@
 package com.captainyun7.ch4examples.v3.service;
 
 import com.captainyun7.ch4examples.v3.domain.Post;
-import com.captainyun7.ch4examples.v3.domain.QPost;
 import com.captainyun7.ch4examples.v3.dto.*;
 import com.captainyun7.ch4examples.v3.repository.PostRepository;
-import com.querydsl.core.BooleanBuilder;
-import com.querydsl.core.QueryFactory;
-import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -14,7 +10,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.util.StringUtils;
 
 import java.util.NoSuchElementException;
 
@@ -24,7 +19,6 @@ import java.util.NoSuchElementException;
 public class PostService {
 
     private final PostRepository repository;
-    private final JPAQueryFactory queryFactory;
 
     public PostResponse createPost(PostCreateRequest request) {
         Post post = request.toDomain();
@@ -84,19 +78,6 @@ public class PostService {
 
     public void deletePost(Long id) {
         repository.deleteById(id);
-    }
-
-
-    public Page<PostResponse> search(PostSearchRequest request, Pageable pageable) {
-        QPost qPost = QPost.post;
-
-        BooleanBuilder builder = new BooleanBuilder();
-        if(StringUtils.hasText(request.getKeyword())) {
-            builder.and(qPost.title.contains(request.getKeyword()));
-        }
-
-        ///queryFactory.selectFrom(qPost).where(???=builder)
-        return null;
     }
 
 

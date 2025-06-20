@@ -8,11 +8,15 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ReviewSearchRequest {
-    private String author;
+    private String reviewAuthor;
+    private String reviewTitle;
+    private String reviewContent;
     private String bookTitle;
-    private double rating;
-    private double minRating;
-    private double maxRating;
+    private String bookAuthor;
+    private String sort;
+    private Integer rating;
+    private Integer minRating;
+    private Integer maxRating;
     private int page = 0;
     private int size = 10;
 }

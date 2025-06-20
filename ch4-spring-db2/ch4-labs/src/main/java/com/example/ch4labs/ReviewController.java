@@ -1,8 +1,9 @@
 package com.example.ch4labs;
 
 import com.example.ch4labs.dto.Review;
-import com.example.ch4labs.dto.ReviewPageResponse;
+import com.example.ch4labs.dto.ReviewResponseDto;
 import com.example.ch4labs.dto.ReviewSearchRequest;
+import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -42,8 +43,8 @@ public class ReviewController {
         service.delete(id);
         return ResponseEntity.noContent().build();
     }
-    @GetMapping
-    public ResponseEntity<ReviewPageResponse> searchPosts(ReviewSearchRequest search) {
-        return ResponseEntity.ok(service.search(search));
+    @GetMapping("/search")
+    public Page<ReviewResponseDto> searchReviews(@ModelAttribute ReviewSearchRequest request) {
+        return  service.search(request);
     }
 }

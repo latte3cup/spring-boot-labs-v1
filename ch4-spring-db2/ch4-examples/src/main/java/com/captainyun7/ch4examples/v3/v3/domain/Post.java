@@ -1,28 +1,32 @@
-package com.example.ch4labs.dto;
+package com.captainyun7.ch4examples.v3.domain;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
 
-@Entity
-@Getter @Setter
-@NoArgsConstructor
+@Getter
+@Setter
 @AllArgsConstructor
-@Builder
-public class Review {
+@NoArgsConstructor
+@Table(name = "posts")
+@Entity
+public class Post {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String title;
-    private String content;
+    private String body;
+
     private String author;
-    private String bookTitle;
-    private String bookAuthor;
-    private int rating;
+
     @CreationTimestamp
     private LocalDateTime createdAt;
+
 }

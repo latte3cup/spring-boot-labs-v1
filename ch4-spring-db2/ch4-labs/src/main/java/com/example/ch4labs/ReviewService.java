@@ -1,8 +1,11 @@
 package com.example.ch4labs;
 
 import com.example.ch4labs.dto.Review;
-import com.example.ch4labs.dto.ReviewPageResponse;
+import com.example.ch4labs.dto.ReviewResponseDto;
 import com.example.ch4labs.dto.ReviewSearchRequest;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,9 +14,12 @@ import java.util.List;
 public class ReviewService {
 
     private final ReviewRepository repository;
+    private final ReviewQueryRepository reviewQueryRepository;
 
-    public ReviewService(ReviewRepository repository) {
+    @Autowired
+    public ReviewService(ReviewRepository repository, ReviewQueryRepository reviewQueryRepository) {
         this.repository = repository;
+        this.reviewQueryRepository = reviewQueryRepository;
     }
 
     public Review create(Review review) {
@@ -40,6 +46,9 @@ public class ReviewService {
         repository.deleteById(id);
     }
 
-    public ReviewPageResponse search(ReviewSearchRequest search) {
+    public Page<ReviewResponseDto> search(ReviewSearchRequest request) {
+        return reviewQueryRepository.searchReviews(request);
     }
+
+
 }
