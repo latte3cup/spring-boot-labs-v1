@@ -1,6 +1,6 @@
-package com.example.ch4labs;
+package com.example.ch4labs.Review;
 
-import com.example.ch4labs.dto.Review;
+import com.example.ch4labs.Review.data.Review;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

@@ -1,9 +1,9 @@
-package com.example.ch4labs;
+package com.example.ch4labs.Review;
 
-import com.example.ch4labs.dto.QReview;
-import com.example.ch4labs.dto.Review;
-import com.example.ch4labs.dto.ReviewResponseDto;
-import com.example.ch4labs.dto.ReviewSearchRequest;
+import com.example.ch4labs.Review.data.QReview;
+import com.example.ch4labs.Review.data.Review;
+import com.example.ch4labs.Review.data.ReviewResponseDto;
+import com.example.ch4labs.Review.data.ReviewSearchRequest;
 import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.types.OrderSpecifier;
 import com.querydsl.core.types.dsl.PathBuilder;

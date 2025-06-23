@@ -1,16 +1,19 @@
-package com.example.ch4labs.dto;
+package com.example.ch4labs.Review.data;
 
+import com.example.ch4labs.Comment.data.Comment;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Getter @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Table(name = "review")
 public class Review {
 
     @Id
@@ -25,4 +28,7 @@ public class Review {
     private int rating;
     @CreationTimestamp
     private LocalDateTime createdAt;
+
+    @OneToMany(mappedBy = "review", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Comment> comments;
 }

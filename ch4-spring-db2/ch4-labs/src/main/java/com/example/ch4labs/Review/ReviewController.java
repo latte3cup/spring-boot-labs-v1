@@ -1,8 +1,8 @@
-package com.example.ch4labs;
+package com.example.ch4labs.Review;
 
-import com.example.ch4labs.dto.Review;
-import com.example.ch4labs.dto.ReviewResponseDto;
-import com.example.ch4labs.dto.ReviewSearchRequest;
+import com.example.ch4labs.Review.data.Review;
+import com.example.ch4labs.Review.data.ReviewResponseDto;
+import com.example.ch4labs.Review.data.ReviewSearchRequest;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

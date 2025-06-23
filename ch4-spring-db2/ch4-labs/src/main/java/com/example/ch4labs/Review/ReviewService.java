@@ -1,14 +1,14 @@
-package com.example.ch4labs;
+package com.example.ch4labs.Review;
 
-import com.example.ch4labs.dto.Review;
-import com.example.ch4labs.dto.ReviewResponseDto;
-import com.example.ch4labs.dto.ReviewSearchRequest;
-import lombok.RequiredArgsConstructor;
+import com.example.ch4labs.Review.data.Review;
+import com.example.ch4labs.Review.data.ReviewResponseDto;
+import com.example.ch4labs.Review.data.ReviewSearchRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ReviewService {
@@ -50,5 +50,8 @@ public class ReviewService {
         return reviewQueryRepository.searchReviews(request);
     }
 
+    public Review getReviewById(Long reveiwId) {
+       return repository.findById(reveiwId).orElseThrow(() -> new RuntimeException("Review not found"));
+    }
 
 }
