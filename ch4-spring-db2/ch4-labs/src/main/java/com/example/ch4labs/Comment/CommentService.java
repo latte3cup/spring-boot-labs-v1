@@ -52,7 +52,7 @@ public class CommentService {
                 .id(comment.getId())
                 .content(comment.getContent())
                 .author(comment.getAuthor())
-                .reviewId(comment.getReview().getId())c
+                .reviewId(comment.getReview().getId())
                 .createdAt(comment.getCreatedAt())
                 .updatedAt(comment.getUpdatedAt())
                 .build();
